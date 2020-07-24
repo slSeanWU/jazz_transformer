@@ -30,7 +30,7 @@ Tensorflow implementation of the automatic music composition model presented in 
   ``--temp TEMP``:      sampling temperature for generation (default: ``1.2``)  
   ``--csv CSV ``:       (optional) output csv file path (which records the generated event sequence)  
 
-### Training from Scratch
+### Train from Scratch
   * Preprocess dataset
   ```
   ./data_preprocess.sh
@@ -43,7 +43,7 @@ Tensorflow implementation of the automatic music composition model presented in 
   ``log_file``:             the file path to save log file  
   * Inference w/ ``inference.py``
 
-## Structure
+## Directory Structure
 ```
 ├── data_preprocess.sh      (executes python scripts to build vocab and prepare data) 
 ├── inference.py            (generates Jazz music)
@@ -57,7 +57,7 @@ Tensorflow implementation of the automatic music composition model presented in 
 │   ├── demo.midi
 ├── pickles                 (houses required metadata for training)
 ├── remi_encs_struct        (contains training data in readable REMI event sequences)
-├── src                     (codes for preprocessing)
+├── src
 │   ├── build_chord_profile.py   (reads and stores key templates for different chord types defined in ``chord_profile.txt``)
 │   ├── build_vocab.py           (builds the vocabulary for the Jazz Transformer)
 │   ├── chord_processor.py       (class and methods for converting notes to chords and vice versa)
@@ -69,7 +69,7 @@ Tensorflow implementation of the automatic music composition model presented in 
 │   ├── mlu_processor.py         (class and methods for defining and parsing Mid-level Unit (MLU) events)
 │   ├── remi_containers.py       (container classes for REMI events)
 │   ├── utils.py                 (miscellaneous utilities)
-├── transformer_xl          (codes for the model)
+├── transformer_xl
 │   ├── model_aug.py             (Jazz Transformer model)
 │   ├── modules.py               (functions for constructing Transformer-XL)
 ```
