@@ -1,40 +1,44 @@
-# Jazz Transformer
+# The Jazz Transformer
 
-## Usage
+An adapted Transformer-XL deep learning model that composes Jazz music  (lead sheets&mdash;_chord progression & melody_).
 
-### Prerequisite
+Tensorflow implementation of the automatic music composition model presented in our paper: 
+ * Shih-Lun Wu and Yi-Hsuan Yang: **The Jazz Transformer on the Front Line: Exploring the Shortcomings of AI-composed Music through Quantitative Measures**, (To appear at) the 21st International Conference on Music Information Retrieval (ISMIR), 2020.
 
-```
-requirements.txt
-```
-### data preprocess
-```
-$ ./data_preprocess.sh
-```
+## Usage Notes
+### Prerequisites
+ * **Python 3.6** ([install](https://www.python.org/downloads/release/python-368/))
+ * _Recommended_: a working GPU with &geq;2GB of memory
+ * Install dependencies (``pip`` or ``pip3``, depending on your sytem)
+  ```shell
+  pip3 install -r requirements.txt
+  ```
+  
+### Compose Some Songs Right Away
+  * Download pretrained model
+  ```shell
+  [command to get the checkpoint]
+  ```
+  * Inference with ``inference.py``
+  ```shell
+  python3 inference.py [--model MODEL] [--temp TEMP] [--csv CSV] output_filename
+  ```
+  ``output_filename``:  output midi file path  
+  ``--model MODEL``:    path to the trained model checkpoint (default: the downloaded model)  
+  ``--temp TEMP``:      sampling temperature for generation (default: ``1.2``)  
+  ``--csv CSV ``:       (optional) output csv file path (which records the generated event sequence)  
 
-### get pretrain model for inference
-```
-$ ./get_pretrain_model.sh
-```
-
-### Training
-
-```
-python train.py checkpoint_filepath log_file
-```
-* checkpoint_filepath  the folder to save checkpoints
-* log_file             the file path to save log file
-
-
-### Inference
-xl_inference.py
-```
-python inference.py [--model MODEL] [--temp TEMP] [--csv CSV] output_filename
-```
-* output_filename  the output midi file path
-* --model MODEL    model name for inference default : a pretrain model with loss 0.214
-* --temp TEMP      temperature for inference (default 1.2)
-* --csv CSV        (optional) output csv file path
+### Training from Scratch
+  * Preprocess dataset
+  ```
+  ./data_preprocess.sh
+  ```
+  * Train the model
+  ```
+  python3 train.py checkpoint_filepath log_file
+  ```
+  ``checkpoint_filepath``:  the folder to save checkpoints  
+  ``log_file``:             the file path to save log file  
 
 ## Structure
 ```bash
