@@ -21,7 +21,7 @@ Tensorflow implementation of the automatic music composition model presented in 
   ```shell
   [command to get the checkpoint]
   ```
-  * Inference with ``inference.py``
+  * Inference (compose)
   ```shell
   python3 inference.py [--model MODEL] [--temp TEMP] [--csv CSV] output_filename
   ```
@@ -41,42 +41,36 @@ Tensorflow implementation of the automatic music composition model presented in 
   ```
   ``checkpoint_filepath``:  the folder to save checkpoints  
   ``log_file``:             the file path to save log file  
+  * Inference w/ ``inference.py``
 
 ## Structure
-```bash
-├── .gitignore
-├── data_preprocess.sh
-├── get_pretrain_model.sh
-├── inference.py
-├── requirements.txt
-├── train.py
-├── data
-├── mcsv_beat
-├── mcsv_melody
-├── output
+```
+├── data_preprocess.sh      (executes python scripts to build vocab and prepare data) 
+├── inference.py            (generates Jazz music)
+├── requirements.txt        (python dependencies)
+├── train.py                (trains Transformer-XL from scratch)
+├── data                    (.pkl files for training)
+├── mcsv_beat               (Jazzomat dataset)
+├── mcsv_melody             (Jazzomat dataset)
+├── output                  (sample generated piece)
 │   ├── demo.csv
 │   ├── demo.midi
-├── pickles
-├── pretrain_model
-├── remi_encs_struct
-├── src
-│   ├── build_chord_profile.py
-│   ├── build_vocab.py
-│   ├── chord_processor.py
-│   ├── chord_profile.txt
-│   ├── containers.py
-│   ├── convert_to_remi.py
-│   ├── explore_mcsv.py
-│   ├── mcsv_to_midi.py
-│   ├── midi_decoder.py
-│   ├── mlu_processor.py
-│   ├── mlus_refined.tmp
-│   ├── prepare_data.py
-│   ├── remi_containers.py
-│   ├── utils.py
-├── transformer_xl
-│   ├── model_aug.py
-│   ├── modules.py
-│   ├── utils.py
+├── pickles                 (houses required metadata for training)
+├── remi_encs_struct        (contains training data in readable REMI event sequences)
+├── src                     (codes for preprocessing)
+│   ├── build_chord_profile.py   (reads and stores key templates for different chord types defined in ``chord_profile.txt``)
+│   ├── build_vocab.py           (builds the vocabulary for the Jazz Transformer)
+│   ├── chord_processor.py       (class and methods for converting notes to chords and vice versa)
+│   ├── chord_profile.txt        (hand-crafted key templates for each chord type)
+│   ├── containers.py            (container classes for events in mcsv files)
+│   ├── convert_to_remi.py       (converts Jazzomat dataset to REMI events for training)
+│   ├── mcsv_to_midi.py          (converts mcsv file to midi format)
+│   ├── midi_decoder.py          (class and methods for conversion from REMI to midi)
+│   ├── mlu_processor.py         (class and methods for defining and parsing Mid-level Unit (MLU) events)
+│   ├── remi_containers.py       (container classes for REMI events)
+│   ├── utils.py                 (miscellaneous utilities)
+├── transformer_xl          (codes for the model)
+│   ├── model_aug.py             (Jazz Transformer model)
+│   ├── modules.py               (functions for constructing Transformer-XL)
 ```
 
