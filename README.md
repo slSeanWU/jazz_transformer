@@ -3,7 +3,9 @@
 An adapted Transformer-XL deep learning model that composes Jazz music  (lead sheets&mdash;_chord progression & melody_).
 
 Tensorflow implementation of the automatic music composition model presented in our paper: 
- * Shih-Lun Wu and Yi-Hsuan Yang: **The Jazz Transformer on the Front Line: Exploring the Shortcomings of AI-composed Music through Quantitative Measures**, (To appear at) the 21st International Conference on Music Information Retrieval (ISMIR), 2020.
+ * **The Jazz Transformer on the Front Line: Exploring the Shortcomings of AI-composed Music through Quantitative Measures**  
+   Shih-Lun Wu and Yi-Hsuan Yang  
+   (To appear at) _The 21st International Society for Music Information Retrieval Conference_ (ISMIR), 2020.
 
 ## Usage Notes
 ### Prerequisites
