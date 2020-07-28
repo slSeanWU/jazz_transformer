@@ -53,7 +53,7 @@ class MLUProcessor(object):
     return has_void, rep_backref, rep_variation, typ, sub_typ
 
 if __name__ == '__main__':
-  with open('mlus_refined.tmp', 'r') as f:
+  with open('mlus_events.txt', 'r') as f:
     lines = f.readlines()
   
   lines = [l.strip().split()[0] for l in lines]
