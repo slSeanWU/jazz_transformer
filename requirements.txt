@@ -8,3 +8,4 @@ tensorboard==2.2.2
 tensorboard-plugin-wit==1.7.0
 tensorflow==2.2.0
 tensorflow-estimator==2.2.0
+matplotlib==3.3.0
