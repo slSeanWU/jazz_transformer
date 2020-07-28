@@ -19,14 +19,14 @@ Tensorflow implementation of the automatic music composition model presented in 
 ### Compose Some Songs Right Away
   * Download pretrained model
   ```shell
-  [command to get the checkpoint]
+  ./download_model.sh
   ```
   * Inference (compose)
   ```shell
   python3 inference.py [--model MODEL] [--temp TEMP] [--csv CSV] output_filename
   ```
   ``output_filename``:  output midi file path  
-  ``--model MODEL``:    path to the trained model checkpoint (default: the downloaded model)  
+  ``--model MODEL``:    path to the trained model checkpoint (default: the downloaded checkpoint)  
   ``--temp TEMP``:      sampling temperature for generation (default: ``1.2``)  
   ``--csv CSV ``:       (optional) output csv file path (which records the generated event sequence)  
 
