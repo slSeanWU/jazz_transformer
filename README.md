@@ -60,13 +60,16 @@ Tensorflow implementation of the automatic music composition model presented in 
 ├── src
 │   ├── build_chord_profile.py   (reads and stores key templates for different chord types defined in ``chord_profile.txt``)
 │   ├── build_vocab.py           (builds the vocabulary for the Jazz Transformer)
-│   ├── chord_processor.py       (class and methods for converting notes to chords and vice versa)
+│   ├── chord_processor.py       (the class and methods for converting notes to chords and vice versa)
 │   ├── chord_profile.txt        (hand-crafted key templates for each chord type)
 │   ├── containers.py            (container classes for events in mcsv files)
 │   ├── convert_to_remi.py       (converts Jazzomat dataset to REMI events for training)
+│   ├── explore_mcsv.py          (utilities for reading events from dataset .csv files)
 │   ├── mcsv_to_midi.py          (converts mcsv file to midi format)
-│   ├── midi_decoder.py          (class and methods for conversion from REMI to midi)
-│   ├── mlu_processor.py         (class and methods for defining and parsing Mid-level Unit (MLU) events)
+│   ├── midi_decoder.py          (the class and methods for conversion from REMI to midi)
+│   ├── mlus_events.txt          (the mlu events used by the Jazz Transformer)
+│   ├── mlu_processor.py         (the class and methods for defining and parsing Mid-level Unit (MLU) events)
+│   ├── prepare_data.py          (splits data into training and validation sets before training the Jazz transformer)
 │   ├── remi_containers.py       (container classes for REMI events)
 │   ├── utils.py                 (miscellaneous utilities)
 ├── transformer_xl
@@ -74,3 +77,8 @@ Tensorflow implementation of the automatic music composition model presented in 
 │   ├── modules.py               (functions for constructing Transformer-XL)
 ```
 
+## Acknowledgements
+The Jazz Transformer is trained on the Weimar Jazz Database (**WJazzD**), a dataset meticulously annotated by the **Jazzomat Research Project** (_@ University of Music FRANZ LISZT Weimar_). Many thanks to them for the great work and making it publicly accessible!
+   * URL for **WJazzD**: https://jazzomat.hfm-weimar.de/dbformat/dboverview.html
+   
+Also, we would like to thank **Yi-Jen Shih** (_@ NTUEE_, [pernosal GitHub](https://github.com/atosystem)) for the help he provided in arranging the codes of this repository.
