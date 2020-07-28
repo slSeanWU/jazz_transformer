@@ -17,10 +17,10 @@ os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 parser = argparse.ArgumentParser()
 
 
-parser.add_argument('--model',help="model name for inference default : a pretrain model with loss 0.214" ,default="pretrain_model/model-222-0.214/model-222-0.214")
-parser.add_argument('output_filename',help="the output midi file path")
-parser.add_argument('--temp',help="temperature for inference (default 1.2)",default=1.2)
-parser.add_argument('--csv',help="(optional) output csv file path",required=False)
+parser.add_argument('--model', help="model name for inference (default: the downloaded ckpt via ``download_model.sh``)", default="ckpt/jazz-trsfmr-B-loss0.25")
+parser.add_argument('output_filename', help="the output midi file path")
+parser.add_argument('--temp', help="softmax sampling temperature (default 1.2)", default=1.2)
+parser.add_argument('--csv', help="(optional) output csv file path", required=False)
 args = parser.parse_args()
 
 out_struct_csv_file = args.csv
