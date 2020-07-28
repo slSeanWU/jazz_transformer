@@ -29,8 +29,7 @@ enc_csv_files = sorted( glob('../remi_encs_struct/*.csv') )
 my_training_data = make_training_data(enc_csv_files)
 print("Done loading csv")
 
-print("Shuffle all data")
-random.shuffle(my_training_data)
+
 print("Splitting validation set")
 cutpoint = int(len(my_training_data)*0.95)
 my_train = my_training_data[:cutpoint]
