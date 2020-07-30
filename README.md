@@ -25,10 +25,10 @@ Tensorflow implementation of the automatic music composition model presented in 
   ```shell
   python3 inference.py [--model MODEL] [--temp TEMP] [--csv CSV] output_filename
   ```
-  ``output_filename``:  output midi file path  
-  ``--model MODEL``:    path to the trained model checkpoint (default: the downloaded checkpoint)  
-  ``--temp TEMP``:      sampling temperature for generation (default: ``1.2``)  
-  ``--csv CSV ``:       (optional) output csv file path (which records the generated event sequence)  
+  * ``output_filename``:  output midi file path  
+  * ``--model MODEL``:    path to the trained model checkpoint (default: the downloaded checkpoint)  
+  * ``--temp TEMP``:      sampling temperature for generation (default: ``1.2``)  
+  * ``--csv CSV ``:       (optional) output csv file path (which records the generated event sequence)  
 
 ### Train from Scratch
   * Preprocess dataset
@@ -50,8 +50,8 @@ Tensorflow implementation of the automatic music composition model presented in 
 ├── requirements.txt        (python dependencies)
 ├── train.py                (trains Transformer-XL from scratch)
 ├── data                    (.pkl files for training)
-├── mcsv_beat               (Jazzomat dataset)
-├── mcsv_melody             (Jazzomat dataset)
+├── mcsv_beat               (Jazzomat dataset content---beats+chords)
+├── mcsv_melody             (Jazzomat dataset content---solo melody)
 ├── output                  (sample generated piece)
 │   ├── demo.csv
 │   ├── demo.midi
@@ -82,3 +82,7 @@ The Jazz Transformer is trained on the Weimar Jazz Database (**WJazzD**), a data
    * URL for **WJazzD**: https://jazzomat.hfm-weimar.de/dbformat/dboverview.html
    
 Also, we would like to thank **Yi-Jen Shih** (_@ NTUEE_, [pernosal GitHub](https://github.com/atosystem)) for the help he provided in arranging the codes of this repository.
+
+## See Also
+* The repository of evaluation metrics (also proposed in our paper) for machine-composed music:
+  https://github.com/slSeanWU/musdr
