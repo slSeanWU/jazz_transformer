@@ -27,11 +27,11 @@ _Want to listen to some compositions by the Jazz Transformer first?_ Click [here
   ```shell
   python3 inference.py [--model MODEL] [--temp TEMP] [--struct_csv CSV] [--n_bars N_BARS] output_filename
   ```
-  * ``output_filename``:  output midi file path  
+  * ``output_filename``:  path to the output MIDI file
   * ``--model MODEL``:    path to the trained model checkpoint (default: the downloaded checkpoint)  
   * ``--temp TEMP``:      sampling temperature for generation (default: ``1.2``)
   * ``--n_bars N_BARS``:      # of bars to generate (default: ``32``)  
-  * ``--struct_csv CSV ``:       output csv file of generated structure-related events (optional)
+  * ``--struct_csv CSV ``:       path to the output csv file that records generated structure-related events (optional)
 
 ### Train from Scratch
   * Preprocess dataset
@@ -42,8 +42,8 @@ _Want to listen to some compositions by the Jazz Transformer first?_ Click [here
   ```
   python3 train.py checkpoint_filepath log_file
   ```
-  * ``checkpoint_filepath``:  the folder to save checkpoints  
-  * ``log_file``:             the file path to save log file   
+  * ``checkpoint_filepath``:  directory to save checkpoints  
+  * ``log_file``:             path to the log file  
   
   Likewise, you may compose music with the model trained by yourself using ``inference.py`` (see above for instructions)
 
