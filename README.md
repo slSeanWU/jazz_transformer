@@ -43,10 +43,9 @@ _Want to listen to some compositions by the Jazz Transformer first?_ Click [here
   python3 train.py checkpoint_filepath log_file
   ```
   * ``checkpoint_filepath``:  the folder to save checkpoints  
-  * ``log_file``:             the file path to save log file    
+  * ``log_file``:             the file path to save log file   
   
-  
-  * Inference w/ ``inference.py`` (see above for instructions)
+  Likewise, you may compose music with the model trained by yourself using ``inference.py`` (see above for instructions)
 
 ## Directory Structure
 ```
