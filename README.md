@@ -89,4 +89,4 @@ Also, we would like to thank **Yi-Jen Shih** (_@ NTUEE_, [pernosal GitHub](https
 
 ## See Also
 * The repository of evaluation metrics (also proposed in our paper) for machine-composed music:  
-  https://github.com/slSeanWU/musdr
+  https://github.com/slSeanWU/MusDr
