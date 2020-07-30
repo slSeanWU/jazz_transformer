@@ -18,7 +18,7 @@ os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--model', help="model name for inference (default: the downloaded ckpt via ``download_model.sh``)", default="ckpt/jazz-trsfmr-B-loss0.25")
-parser.add_argument('output_filename', help="the output midi file path")
+parser.add_argument('output_midi', help="the output midi file path")
 parser.add_argument('--temp', help="softmax sampling temperature (default: 1.2)", type=float, default=1.2)
 parser.add_argument('--n_bars', help="# bars to generate (default: 32)", type=int, default=32)
 parser.add_argument('--struct_csv', help="(optional) output csv path for generated struture-related events", required=False)
@@ -45,7 +45,7 @@ if __name__ == '__main__':
     # load dictionary
     vocab = pickle.load(open('pickles/remi_wstruct_vocab.pkl', 'rb'))
     event2word, word2event = vocab.event2idx, vocab.idx2event
-    out_midi_file = args.output_filename
+    out_midi_file = args.output_midi
     out_midi_dir = os.path.dirname(out_midi_file)   
 
     if not out_midi_dir == "":
