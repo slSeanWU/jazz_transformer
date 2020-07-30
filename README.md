@@ -84,5 +84,5 @@ The Jazz Transformer is trained on the Weimar Jazz Database (**WJazzD**), a data
 Also, we would like to thank **Yi-Jen Shih** (_@ NTUEE_, [pernosal GitHub](https://github.com/atosystem)) for the help he provided in arranging the codes of this repository.
 
 ## See Also
-* The repository of evaluation metrics (also proposed in our paper) for machine-composed music:
+* The repository of evaluation metrics (also proposed in our paper) for machine-composed music:  
   https://github.com/slSeanWU/musdr
