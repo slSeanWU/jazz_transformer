@@ -19,7 +19,7 @@ from glob import glob
 from build_vocab import Vocab
 
 # which gpu to use
-os.environ['CUDA_VISIBLE_DEVICES'] = '3'
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
 from model_aug import TransformerXL
 

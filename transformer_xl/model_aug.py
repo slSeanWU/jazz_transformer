@@ -392,11 +392,10 @@ class TransformerXL(object):
         fail_cnt = 0
         
         while generated_bars < n_bars:
-            print("Generating bars #{}/{}".format(generated_bars+1,n_bars),end='\r')
+            print("Generating bars #{}/{}".format(generated_bars+1,n_bars), end='\r')
             if fail_cnt:
                 print ('failed iterations:', fail_cnt)
             
-            # 256 is a magic number , please ask Sean Wu
             if fail_cnt > 256:
                 print ('model stuck ...')
                 exit()

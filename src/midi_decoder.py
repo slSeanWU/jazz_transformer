@@ -184,7 +184,7 @@ class MidiDecoder(object):
 def convert_events_to_midi(event_source, output_midi, chord_processor, use_structure=False, output_struct_csv=None, transfer_to_full_event=False, vocab=None, max_duration=None):
   if isinstance(event_source, list):
     midi_dec = MidiDecoder(None, chord_processor, read_csv=False, events=event_source, max_duration=max_duration)
-    print ('>> now processing:', output_midi)
+    print ('>> now converting events to MIDI:', output_midi, '...')
   else:
     midi_dec = midi_dec = MidiDecoder(event_source, chord_processor, transfer_to_full_event=transfer_to_full_event, vocab=vocab, max_duration=max_duration)
 

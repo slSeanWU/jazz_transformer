@@ -2,6 +2,8 @@ from glob import glob
 import numpy as np
 import pandas as pd
 import os, sys, pickle , argparse
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 sys.path.append('./src/')
 from midi_decoder import convert_events_to_midi
@@ -15,12 +17,11 @@ from model_aug import TransformerXL
 os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
 parser = argparse.ArgumentParser()
-
-
 parser.add_argument('--model', help="model name for inference (default: the downloaded ckpt via ``download_model.sh``)", default="ckpt/jazz-trsfmr-B-loss0.25")
 parser.add_argument('output_filename', help="the output midi file path")
-parser.add_argument('--temp', help="softmax sampling temperature (default 1.2)", default=1.2)
-parser.add_argument('--csv', help="(optional) output csv file path", required=False)
+parser.add_argument('--temp', help="softmax sampling temperature (default: 1.2)", type=float, default=1.2)
+parser.add_argument('--n_bars', help="# bars to generate (default: 32)", type=int, default=32)
+parser.add_argument('--struct_csv', help="(optional) output csv path for generated struture-related events", required=False)
 args = parser.parse_args()
 
 out_struct_csv_file = args.csv
@@ -58,20 +59,11 @@ if __name__ == '__main__':
         checkpoint=args.model,
         is_training=False
     )
-    # model = TransformerXL(
-    #     event2word=event2word, 
-    #     word2event=word2event,
-    #     checkpoint='xl_final_model_struct/model-222-0.214',
-    #     is_training=False
-    # )
-    
-
-
     
     # inference
-    # temperature suggestion = 1.2
+    # recommended temperature = 1.2
     word_seq = model.inference(
-        n_bars=32,
+        n_bars=args.n_bars,
         strategies=['temperature', 'nucleus'],
         params={'t': args.temp, 'p': 0.9},
         use_structure=True
@@ -80,7 +72,7 @@ if __name__ == '__main__':
     model.close()
 
     events = [ word2event[w] for w in word_seq ]
-    print ("First 20 events:{}".format(events[:20]))
+    print ("First 20 events: {}".format(events[:20]))
     chord_processor = pickle.load(open('pickles/chord_processor.pkl', 'rb'))
 
     try:
