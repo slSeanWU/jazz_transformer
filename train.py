@@ -3,7 +3,7 @@ import sys, pickle , os
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('checkpoint_filepath' , help="the folder to save checkpoints")
+parser.add_argument('ckpt_dir' , help="the folder to save checkpoints")
 parser.add_argument('log_file' , help="the file path to save log file")
 
 args = parser.parse_args()
@@ -52,7 +52,7 @@ if __name__ == '__main__':
       training_seqs=training_seqs)
   
   # train
-  model.train_augment(output_checkpoint_folder=args.checkpoint_filepath, logfile=args.log_file)
+  model.train_augment(output_checkpoint_folder=args.ckpt_dir, logfile=args.log_file)
   
   # close
   model.close()
