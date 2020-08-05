@@ -24,7 +24,7 @@ parser.add_argument('--n_bars', help="# bars to generate (default: 32)", type=in
 parser.add_argument('--struct_csv', help="(optional) output csv path for generated struture-related events", required=False)
 args = parser.parse_args()
 
-out_struct_csv_file = args.csv
+out_struct_csv_file = args.struct_csv
 
 if out_struct_csv_file:
     print ('struct csv will be written to:', out_struct_csv_file)
@@ -41,7 +41,6 @@ def seq_to_csv(seq, word2event, out_csv):
     return
 
 if __name__ == '__main__':
-
     # load dictionary
     vocab = pickle.load(open('pickles/remi_wstruct_vocab.pkl', 'rb'))
     event2word, word2event = vocab.event2idx, vocab.idx2event
@@ -80,7 +79,9 @@ if __name__ == '__main__':
             convert_events_to_midi(events, out_midi_file, chord_processor, use_structure=True, output_struct_csv=out_struct_csv_file)
         else:
             convert_events_to_midi(events, out_midi_file, chord_processor)
-        seq_to_csv(word_seq, word2event, out_midi_file.replace('.midi', '.csv'))
+        event_file = out_midi_file.replace(os.path.splitext(out_midi_file)[-1], '.csv')
+        print ('generated event sequence will be written to:', event_file)
+        seq_to_csv(word_seq, word2event, event_file)
     except Exception as e:
         print ('error occurred when converting to', out_midi_file)
         print (e)
