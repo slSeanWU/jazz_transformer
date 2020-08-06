@@ -85,7 +85,7 @@ _Want to listen to some compositions by the Jazz Transformer first?_ Click [here
 The Jazz Transformer is trained on the Weimar Jazz Database (**WJazzD**), a dataset meticulously annotated by the **Jazzomat Research Project** (_@ University of Music FRANZ LISZT Weimar_). Many thanks to them for the great work and making it publicly accessible!
    * URL for **WJazzD**: https://jazzomat.hfm-weimar.de/dbformat/dboverview.html
    
-Also, we would like to thank **Yi-Jen Shih** (_@ NTUEE_, [pernosal GitHub](https://github.com/atosystem)) for the help he provided in arranging the codes of this repository.
+Also, we would like to thank **Yi-Jen Shih** (_@ NTUEE_, [personal GitHub](https://github.com/atosystem)) for the help he provided in arranging the codes of this repository.
 
 ## See Also
 * The repository of evaluation metrics (also proposed in our paper) for machine-composed music:  
